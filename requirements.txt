@@ -8,9 +8,6 @@ langchain-community>=0.2.0
 langchain-groq>=0.1.0
 langchain-text-splitters>=0.2.0
 
-# ── Vector Store ───────────────────────────────────
-chromadb>=0.4.0
-
 # ── Document Loaders ──────────────────────────────
 pypdf>=3.0.0
 python-pptx>=0.6.0
@@ -25,9 +22,6 @@ moviepy>=1.0.3
 
 # ── PDF Export ─────────────────────────────────────
 reportlab>=4.0.0
-
-# ── Notebook UI ────────────────────────────────────
-ipywidgets>=8.0.0
 
 # ── Network ────────────────────────────────────────
 requests>=2.28.0

@@ -1,17 +1,18 @@
 """
-vector_store.py — ChromaDB Vector Store Manager
+vector_store.py — In-Memory Vector Store Manager
 
-Wraps ChromaDB operations for document storage and similarity search.
+Uses LangChain's InMemoryVectorStore (pure Python/numpy) instead of ChromaDB.
+This avoids the heavy hnswlib/SQLite dependency, making it cloud-friendly.
 """
 
-from langchain_community.vectorstores import Chroma
+from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from embeddings import get_embeddings
 
 
 class VectorStoreManager:
     """
-    Manages a ChromaDB vector store for document embeddings.
+    Manages an in-memory vector store for document embeddings.
 
     Usage:
         manager = VectorStoreManager()
@@ -54,7 +55,7 @@ class VectorStoreManager:
         chunks = splitter.split_documents(docs)
 
         if self.vector_db is None:
-            self.vector_db = Chroma.from_documents(chunks, self.embeddings)
+            self.vector_db = InMemoryVectorStore.from_documents(chunks, self.embeddings)
         else:
             self.vector_db.add_documents(chunks)
 
