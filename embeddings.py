@@ -1,24 +1,30 @@
 """
 embeddings.py — Embedding Model Configuration
 
-Centralizes the embedding model setup so all modules use the same config.
-Uses HuggingFaceEmbeddings (sentence-transformers) — runs locally, no API key needed.
+Uses HuggingFace Inference API — embeddings run on HF servers,
+no local model download, no heavy RAM usage. Perfect for free cloud hosting.
 """
 
-from langchain_huggingface import HuggingFaceEmbeddings
+import os
+from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
 
-# Default embedding model name (small, fast, works well for RAG)
+# Lightweight embedding model via HF Inference API
 DEFAULT_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
 
-def get_embeddings(model: str = DEFAULT_MODEL) -> HuggingFaceEmbeddings:
+def get_embeddings(model: str = DEFAULT_MODEL) -> HuggingFaceInferenceAPIEmbeddings:
     """
-    Create and return a HuggingFaceEmbeddings instance.
+    Create and return a HuggingFaceInferenceAPIEmbeddings instance.
+    Makes API calls to HuggingFace servers — no local model loading.
 
     Args:
-        model: Name of the sentence-transformers model to use.
+        model: HuggingFace model repo name.
 
     Returns:
-        Configured HuggingFaceEmbeddings object.
+        Configured HuggingFaceInferenceAPIEmbeddings object.
     """
-    return HuggingFaceEmbeddings(model_name=model)
+    api_key = os.environ.get("HUGGINGFACEHUB_API_TOKEN", "")
+    return HuggingFaceInferenceAPIEmbeddings(
+        api_key=api_key,
+        model_name=model,
+    )
