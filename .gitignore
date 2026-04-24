@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# ChromaDB data (user-uploaded docs, don't commit)
+chroma_db/
+*.db
+
+# Audio temp files
+*.mp3
+*.webm
+*.wav
+
+# Users data (contains passwords)
+users.json
+
+# Node / Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local
+
+# IDE
+.vscode/
+.idea/
+*.suo
+*.user
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,38 @@
+# AI Study System — Dependencies
+# Install with: pip install -r requirements.txt
+
+# ── LLM & Embeddings ──────────────────────────────
+langchain>=0.2.0
+langchain-core>=0.2.0
+langchain-community>=0.2.0
+langchain-groq>=0.1.0
+langchain-huggingface>=0.0.6
+langchain-text-splitters>=0.2.0
+sentence-transformers>=2.2.0
+
+# ── Vector Store ───────────────────────────────────
+chromadb>=0.4.0
+
+# ── Document Loaders ──────────────────────────────
+pypdf>=3.0.0
+python-pptx>=0.6.0
+python-docx>=0.8.0
+openpyxl>=3.1.0
+pdfminer.six>=20221105
+
+# ── Audio / Video ─────────────────────────────────
+SpeechRecognition>=3.10.0
+gTTS>=2.3.0
+moviepy>=1.0.3
+
+# ── PDF Export ─────────────────────────────────────
+reportlab>=4.0.0
+
+# ── Notebook UI ────────────────────────────────────
+ipywidgets>=8.0.0
+
+# ── Network ────────────────────────────────────────
+requests>=2.28.0
+fastapi>=0.100.0
+uvicorn>=0.20.0
+python-multipart>=0.0.6
